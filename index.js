@@ -15,30 +15,26 @@
  * should return 'foofoo'.
  */
 
-// const stringList = ["Hello!", "Wassup!", "Howdy!"];
-// function processFirstItem(arr, callback) {
-//   return function callback() {
-//     arr[0];
-//   };
-// }
-// const exampleChallenge = processFirstItem(stringList, callback);
-// console.log(exampleChallenge());
+function processFirstItem(stringList, callback) {
+  return callback(stringList[0]);
+}
+console.log(["foo", "bar"], `(str) => str + str`);
 
 // ⭐️ Example Challenge END ⭐️
 
 ///// M V P ///////
 
-/* Task 1: `counterMaker`
+/* ✅ Task 1: `counterMaker`
  * Study the code for counter1 and counter2. Answer the questions below.
  *
  * 1. What is the difference between counter1 and counter2?
- * - The counter1 code will
+ * - The counter1 code will start at 1, whereas the counter2 code will start at 0.
  *
  * 2. Which of the two uses a closure? How can you tell?
  * - The counter1 code uses a closure, and I can tell because the function counter is enCLOSURED within the counterMaker function.
  *
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better?
- * - In the scenario that you just want the computer to run the code one time
+ * - counter1 would be preferable when you want to start counting from 1 and keeping 'score'. counter2 would be more helpful in an iterating situation.
  */
 
 // counter1 code
@@ -46,6 +42,7 @@ function counterMaker() {
   let count = 0;
   return function counter() {
     count++;
+    return count;
   };
 }
 const counter1 = counterMaker();
@@ -87,17 +84,18 @@ finalScore(inning, 9) might return:
 */
 
 function finalScore(callback, inning) {
-  let boxScore = {};
-  const runCalculator = callback * inning;
-  let home = { runCalculator };
-  let away = { runCalculator };
-  console.log(home, away);
-  return function () {
-    boxScore.push(home, away);
+  const runCalculator = callback + callback;
+  for (let i = 0; i < inning.length; i++) {
+    const runCalculator = [callback];
+    return runCalculator;
+  }
+  let boxScore = {
+    Home: runCalculator,
+    Away: runCalculator,
   };
+  return boxScore;
 }
-finalScore(inning(), 9);
-console.log(finalScore);
+console.log(finalScore(inning(), 9));
 
 /* Task 4: 
 
