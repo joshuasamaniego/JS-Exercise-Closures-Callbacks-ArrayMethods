@@ -41,9 +41,9 @@ Find the file `index.js` and complete the tasks until your tests are passing.
 
 Edit the `ReadMe` file with your answers.
 
-1. In your own words, define closure (1-2 sentences).
+1. In your own words, define closure (1-2 sentences). ✅
 
-- Closure allows us to combine and nest functions together. Practially speaking, it's a way for us to make the computer 'remember' data, so that we can do something with that data lataaaaaa.
+- Closure allows us to combine and nest functions together, which allows the inner function's scope to reference an outer function's scope. Practially speaking, it's a way for us to make the computer 'remember' data, so that we can do something with that data lataaaaaa.
 
 2. Study the following code, then answer the questions below.
 
@@ -64,13 +64,12 @@ dansRoll();
 dansRoll();
 ```
 
-a. Where is closure used in this code? How can you tell?
-
-- Closure is used on line 49, where there is a nameless function nested within the personalDice function. I can tell because it's nested.
-  b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
-- The path that the argument "Dan" makes is always the same and will always be returned when you call dansRoll. The changing bit of data will be the newRoll variable part of the string template literal that gets returned, which will be a number between 1 and 6.
-  c. What is the lexical scope of `newRoll`?
-- The lexical scope of newRoll could be considered equivalent to saying, what does newRoll "belong" to, and in this case that would be the nameless function, as well as the personalDice function.
+- a. Where is closure used in this code? How can you tell? ✅
+  Closure is used on line 49, where there is a nameless function nested within the personalDice function. I can tell because it's nested.-
+- b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change? ✅
+  The path that the argument "Dan" makes is always the same and will always be returned when you call dansRoll. The changing bit of data will be the newRoll variable part of the string template literal that gets returned, which will be a number between 1 and 6.
+- c. What is the lexical scope of `newRoll`? ✅
+  The lexical scope of newRoll could be considered equivalent to saying, what does newRoll "belong" to, and in this case that would be the nameless function, as well as the personalDice function.
 
 ### Task 3 - Stretch Goals
 
