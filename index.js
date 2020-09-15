@@ -1,4 +1,4 @@
-// ⭐️ Example Challenge START ⭐️
+// -------------------------------------- ⭐️ EXAMPLE START ⭐️ -------------------------------------------//
 
 /**
  * ### Challenge `processFirstItem`
@@ -18,9 +18,8 @@
 function processFirstItem(stringList, callback) {
   return callback(stringList[0]);
 }
-console.log(["foo", "bar"], `(str) => str + str`);
 
-// ⭐️ Example Challenge END ⭐️
+// --------------------------------------- ⭐️ EXAMPLE END ⭐️ ---------------------------------------------//
 
 ///// M V P ///////
 
@@ -28,7 +27,7 @@ console.log(["foo", "bar"], `(str) => str + str`);
  * Study the code for counter1 and counter2. Answer the questions below.
  *
  * 1. What is the difference between counter1 and counter2?
- * - The counter1 code will start at 1, whereas the counter2 code will start at 0.
+ * - The counter1 code has the variable count outsi, whereas the counter2 code will start at 0.
  *
  * 2. Which of the two uses a closure? How can you tell?
  * - The counter1 code uses a closure, and I can tell because the function counter is enCLOSURED within the counterMaker function.
@@ -42,22 +41,15 @@ function counterMaker() {
   let count = 0;
   return function counter() {
     count++;
-    return count;
   };
 }
 const counter1 = counterMaker();
-console.log(counter1());
-console.log(counter1());
-console.log(counter1());
 
 // counter2 code
 let count = 0;
 function counter2() {
   return count++;
 }
-console.log(counter2());
-console.log(counter2());
-console.log(counter2());
 
 /* ✅ Task 2: inning() 
 
@@ -69,7 +61,14 @@ function inning() {
 }
 console.log(inning());
 
-/* Task 3: finalScore()
+// MORE FUNCTIONALITY:
+// function inning(min, max) {
+//   const points = Math.floor(Math.random() * (max - min) + min);
+//   return points;
+// }
+// console.log(inning(9, 21));
+
+/* ✅ Task 3: finalScore()
 
 Write a higher order function called `finalScore` that accepts the callback function `inning` (from above) and a number of innings and returns the final score of the game in the form of an object.
 
@@ -83,19 +82,17 @@ finalScore(inning, 9) might return:
 
 */
 
-function finalScore(callback, inning) {
-  const runCalculator = callback + callback;
-  for (let i = 0; i < inning.length; i++) {
-    const runCalculator = [callback];
-    return runCalculator;
+function finalScore(callback, numberOfInnings) {
+  let home = 0;
+  let away = 0;
+  for (let i = 0; i < numberOfInnings; i++) {
+    home = home + callback();
+    away = away + callback();
   }
-  let boxScore = {
-    Home: runCalculator,
-    Away: runCalculator,
-  };
+  let boxScore = { home, away };
   return boxScore;
 }
-console.log(finalScore(inning(), 9));
+console.log(finalScore(inning, 9));
 
 /* Task 4: 
 
@@ -119,6 +116,16 @@ and returns the score at each pont in the game, like so:
 
 Final Score: awayTeam - homeTeam */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(getInningScoreCB, inningCB, numberOfInnings) {
+  let home = 0;
+  let away = 0;
+  for (let i = 0; i < numberOfInnings; i++) {
+    let inning = getInningScoreCB(inningCB, 1);
+
+    home = home + inning.home;
+    away = away + inning.away;
+
+    console.log(`${i + 1}th Inning: ${away} - ${home}`);
+  }
 }
+scoreboard(finalScore, inning, 10);
